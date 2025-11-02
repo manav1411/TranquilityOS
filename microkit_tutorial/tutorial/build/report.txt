@@ -7,9 +7,9 @@
 
 # Loader Regions
 
-       <Region name=PD-ELF serial_server-0 addr=0x60246000 size=21680>
+       <Region name=PD-ELF serial_server-0 addr=0x60246000 size=22056>
        <Region name=PD-ELF serial_server-1 addr=0x6024c000 size=144>
-       <Region name=PD-ELF client_server-0 addr=0x6024d000 size=20792>
+       <Region name=PD-ELF client_server-0 addr=0x6024d000 size=20840>
        <Region name=PD-ELF client_server-1 addr=0x60253000 size=336>
 
 # Monitor (Initial Task) Info
@@ -28,8 +28,8 @@
 
 # System Kernel Invocations Summary
 
-     # of invocations   :         72
-     size of invocations:      5,240
+     # of invocations   :         74
+     size of invocations:      5,384
 
 # Allocated Kernel Objects Detail
 
@@ -478,131 +478,147 @@
          src_depth            64
          rights               15
          badge                0
-    0x002a IRQ Handler          - SetNotification   - 0x800000000000002d (IRQ Handler: irq=33)
+    0x002a CNode                - Mint              - 0x800000000000002b (CNode: PD=serial_server)
+         dest_index           11
+         dest_depth           9
+         src_root (cap)       0x0000000000000061 (CNode: root)
+         src_obj (cap)        0x800000000000001f (Notification: PD=client_server)
+         src_depth            64
+         rights               15
+         badge                4
+    0x002b CNode                - Mint              - 0x800000000000002c (CNode: PD=client_server)
+         dest_index           12
+         dest_depth           9
+         src_root (cap)       0x0000000000000061 (CNode: root)
+         src_obj (cap)        0x800000000000001e (Notification: PD=serial_server)
+         src_depth            64
+         rights               15
+         badge                2
+    0x002c IRQ Handler          - SetNotification   - 0x800000000000002d (IRQ Handler: irq=33)
          notification (cap)   0x800000000000003f (Notification: PD=serial_server (badge=0x1))
-    0x002b Page Table           - Map               - 0x8000000000000022 (PageTable: PD=serial_server VADDR=0x0)
+    0x002d Page Table           - Map               - 0x8000000000000022 (PageTable: PD=serial_server VADDR=0x0)
          vspace (cap)         0x8000000000000020 (VSpace: PD=serial_server)
          vaddr                0x0
          attr                 3
-    0x002c Page Table           - Map               - 0x8000000000000023 (PageTable: PD=serial_server VADDR=0xffc0000000)
+    0x002e Page Table           - Map               - 0x8000000000000023 (PageTable: PD=serial_server VADDR=0xffc0000000)
          vspace (cap)         0x8000000000000020 (VSpace: PD=serial_server)
          vaddr                0xffc0000000
          attr                 3
-    0x002d Page Table           - Map               - 0x8000000000000024 (PageTable: PD=client_server VADDR=0x0)
+    0x002f Page Table           - Map               - 0x8000000000000024 (PageTable: PD=client_server VADDR=0x0)
          vspace (cap)         0x8000000000000021 (VSpace: PD=client_server)
          vaddr                0x0
          attr                 3
-    0x002e Page Table           - Map               - 0x8000000000000025 (PageTable: PD=client_server VADDR=0xffc0000000)
+    0x0030 Page Table           - Map               - 0x8000000000000025 (PageTable: PD=client_server VADDR=0xffc0000000)
          vspace (cap)         0x8000000000000021 (VSpace: PD=client_server)
          vaddr                0xffc0000000
          attr                 3
-    0x002f Page Table           - Map               - 0x8000000000000026 (PageTable: PD=serial_server VADDR=0x200000)
+    0x0031 Page Table           - Map               - 0x8000000000000026 (PageTable: PD=serial_server VADDR=0x200000)
          vspace (cap)         0x8000000000000020 (VSpace: PD=serial_server)
          vaddr                0x200000
          attr                 3
-    0x0030 Page Table           - Map               - 0x8000000000000027 (PageTable: PD=serial_server VADDR=0x2000000)
+    0x0032 Page Table           - Map               - 0x8000000000000027 (PageTable: PD=serial_server VADDR=0x2000000)
          vspace (cap)         0x8000000000000020 (VSpace: PD=serial_server)
          vaddr                0x2000000
          attr                 3
-    0x0031 Page Table           - Map               - 0x8000000000000028 (PageTable: PD=serial_server VADDR=0xffffe00000)
+    0x0033 Page Table           - Map               - 0x8000000000000028 (PageTable: PD=serial_server VADDR=0xffffe00000)
          vspace (cap)         0x8000000000000020 (VSpace: PD=serial_server)
          vaddr                0xffffe00000
          attr                 3
-    0x0032 Page Table           - Map               - 0x8000000000000029 (PageTable: PD=client_server VADDR=0x200000)
+    0x0034 Page Table           - Map               - 0x8000000000000029 (PageTable: PD=client_server VADDR=0x200000)
          vspace (cap)         0x8000000000000021 (VSpace: PD=client_server)
          vaddr                0x200000
          attr                 3
-    0x0033 Page Table           - Map               - 0x800000000000002a (PageTable: PD=client_server VADDR=0xffffe00000)
+    0x0035 Page Table           - Map               - 0x800000000000002a (PageTable: PD=client_server VADDR=0xffffe00000)
          vspace (cap)         0x8000000000000021 (VSpace: PD=client_server)
          vaddr                0xffffe00000
          attr                 3
-    0x0034 Page                 - Map               - 0x800000000000002e (Page(4 KiB): MR=UART @ 9000000 (derived))
+    0x0036 Page                 - Map               - 0x800000000000002e (Page(4 KiB): MR=UART @ 9000000 (derived))
          vspace (cap)         0x8000000000000020 (VSpace: PD=serial_server)
          vaddr                0x2000000
          rights               3
          attr                 6
-    0x0035 Page                 - Map               - 0x800000000000002f (Page(4 KiB): MR=ELF:serial_server-0 @ 60246000 (derived))
+    0x0037 Page                 - Map               - 0x800000000000002f (Page(4 KiB): MR=ELF:serial_server-0 @ 60246000 (derived))
          vspace (cap)         0x8000000000000020 (VSpace: PD=serial_server)
          vaddr                0x200000
          rights               2
          attr                 3
       REPEAT: count=6
-    0x0036 Page                 - Map               - 0x8000000000000035 (Page(4 KiB): MR=ELF:serial_server-1 @ 6024c000 (derived))
+    0x0038 Page                 - Map               - 0x8000000000000035 (Page(4 KiB): MR=ELF:serial_server-1 @ 6024c000 (derived))
          vspace (cap)         0x8000000000000020 (VSpace: PD=serial_server)
          vaddr                0x206000
          rights               3
          attr                 7
-    0x0037 Page                 - Map               - 0x8000000000000036 (Page(4 KiB): MR=STACK:serial_server #0 (derived))
+    0x0039 Page                 - Map               - 0x8000000000000036 (Page(4 KiB): MR=STACK:serial_server #0 (derived))
          vspace (cap)         0x8000000000000020 (VSpace: PD=serial_server)
          vaddr                0xfffffff000
          rights               3
          attr                 7
-    0x0038 Page                 - Map               - 0x8000000000000037 (Page(4 KiB): MR=ELF:client_server-0 @ 6024d000 (derived))
+    0x003a Page                 - Map               - 0x8000000000000037 (Page(4 KiB): MR=ELF:client_server-0 @ 6024d000 (derived))
          vspace (cap)         0x8000000000000021 (VSpace: PD=client_server)
          vaddr                0x200000
          rights               2
          attr                 3
       REPEAT: count=6
-    0x0039 Page                 - Map               - 0x800000000000003d (Page(4 KiB): MR=ELF:client_server-1 @ 60253000 (derived))
+    0x003b Page                 - Map               - 0x800000000000003d (Page(4 KiB): MR=ELF:client_server-1 @ 60253000 (derived))
          vspace (cap)         0x8000000000000021 (VSpace: PD=client_server)
          vaddr                0x206000
          rights               3
          attr                 7
-    0x003a Page                 - Map               - 0x800000000000003e (Page(4 KiB): MR=STACK:client_server #0 (derived))
+    0x003c Page                 - Map               - 0x800000000000003e (Page(4 KiB): MR=STACK:client_server #0 (derived))
          vspace (cap)         0x8000000000000021 (VSpace: PD=client_server)
          vaddr                0xfffffff000
          rights               3
          attr                 7
-    0x003b Page                 - Map               - 0x8000000000000012 (Page(4 KiB): IPC Buffer PD=serial_server)
+    0x003d Page                 - Map               - 0x8000000000000012 (Page(4 KiB): IPC Buffer PD=serial_server)
          vspace (cap)         0x8000000000000020 (VSpace: PD=serial_server)
          vaddr                0x207000
          rights               3
          attr                 7
-    0x003c Page                 - Map               - 0x8000000000000013 (Page(4 KiB): IPC Buffer PD=client_server)
+    0x003e Page                 - Map               - 0x8000000000000013 (Page(4 KiB): IPC Buffer PD=client_server)
          vspace (cap)         0x8000000000000021 (VSpace: PD=client_server)
          vaddr                0x207000
          rights               3
          attr                 7
-    0x003d SchedControl         - ConfigureFlags    - 0x0000000000000012 (None)
+    0x003f SchedControl         - ConfigureFlags    - 0x0000000000000012 (None)
          schedcontext (cap)   0x8000000000000018 (SchedContext: PD=serial_server)
          budget               1000
          period               1000
          extra_refills        0
          badge                256
          flags                0
-    0x003e SchedControl         - ConfigureFlags    - 0x0000000000000012 (None)
+    0x0040 SchedControl         - ConfigureFlags    - 0x0000000000000012 (None)
          schedcontext (cap)   0x8000000000000019 (SchedContext: PD=client_server)
          budget               1000
          period               1000
          extra_refills        0
          badge                257
          flags                0
-    0x003f TCB                  - SetSchedParams    - 0x8000000000000016 (TCB: PD=serial_server)
+    0x0041 TCB                  - SetSchedParams    - 0x8000000000000016 (TCB: PD=serial_server)
          authority (cap)      0x0000000000000001 (TCB: init)
          mcp                  1
          priority             1
          sched_context (cap)  0x8000000000000018 (SchedContext: PD=serial_server)
          fault_ep (cap)       0x800000000000001d (EP: Monitor Fault)
-    0x0040 TCB                  - SetSchedParams    - 0x8000000000000017 (TCB: PD=client_server)
+    0x0042 TCB                  - SetSchedParams    - 0x8000000000000017 (TCB: PD=client_server)
          authority (cap)      0x0000000000000001 (TCB: init)
          mcp                  0
          priority             0
          sched_context (cap)  0x8000000000000019 (SchedContext: PD=client_server)
          fault_ep (cap)       0x800000000000001d (EP: Monitor Fault)
-    0x0041 TCB                  - SetSpace          - 0x8000000000000016 (TCB: PD=serial_server)
+    0x0043 TCB                  - SetSpace          - 0x8000000000000016 (TCB: PD=serial_server)
          fault_ep (cap)       0x8000000000000040 (None)
          cspace_root (cap)    0x800000000000002b (CNode: PD=serial_server)
          cspace_root_data     55
          vspace_root (cap)    0x8000000000000020 (VSpace: PD=serial_server)
          vspace_root_data     0
       REPEAT: count=2
-    0x0042 TCB                  - SetIPCBuffer      - 0x8000000000000016 (TCB: PD=serial_server)
+    0x0044 TCB                  - SetIPCBuffer      - 0x8000000000000016 (TCB: PD=serial_server)
          buffer               0x207000
          buffer_frame (cap)   0x8000000000000012 (Page(4 KiB): IPC Buffer PD=serial_server)
-    0x0043 TCB                  - SetIPCBuffer      - 0x8000000000000017 (TCB: PD=client_server)
+    0x0045 TCB                  - SetIPCBuffer      - 0x8000000000000017 (TCB: PD=client_server)
          buffer               0x207000
          buffer_frame (cap)   0x8000000000000013 (Page(4 KiB): IPC Buffer PD=client_server)
-    0x0044 TCB                  - WriteRegisters    - 0x8000000000000016 (TCB: PD=serial_server)
+    0x0046 TCB                  - WriteRegisters    - 0x8000000000000016 (TCB: PD=serial_server)
          resume               false
          arch_flags           0
          regs                 pc: 0x0000000000200000
@@ -641,7 +657,7 @@
                               x28: 0x0000000000000000
                               tpidr_el0: 0x0000000000000000
                               tpidrro_el0: 0x0000000000000000
-    0x0045 TCB                  - WriteRegisters    - 0x8000000000000017 (TCB: PD=client_server)
+    0x0047 TCB                  - WriteRegisters    - 0x8000000000000017 (TCB: PD=client_server)
          resume               false
          arch_flags           0
          regs                 pc: 0x0000000000200000
@@ -680,9 +696,9 @@
                               x28: 0x0000000000000000
                               tpidr_el0: 0x0000000000000000
                               tpidrro_el0: 0x0000000000000000
-    0x0046 TCB                  - BindNotification  - 0x8000000000000016 (TCB: PD=serial_server)
+    0x0048 TCB                  - BindNotification  - 0x8000000000000016 (TCB: PD=serial_server)
          notification (cap)   0x800000000000001e (Notification: PD=serial_server)
       REPEAT: count=2
-    0x0047 TCB                  - Resume            - 0x8000000000000016 (TCB: PD=serial_server)
+    0x0049 TCB                  - Resume            - 0x8000000000000016 (TCB: PD=serial_server)
 
       REPEAT: count=2

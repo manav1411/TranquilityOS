@@ -124,4 +124,10 @@ void init(void) {
     print_table(false);
 }
 
-void notified(microkit_channel channel) {}
+void notified(microkit_channel channel) {
+
+    if (channel == 2) {
+
+        microkit_dbg_puts("notified on channel 2!");
+    }
+}

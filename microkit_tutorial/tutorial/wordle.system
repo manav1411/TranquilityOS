@@ -15,11 +15,12 @@
     <protection_domain name="client_server" priority="0">
         <program_image path="./client.elf" />
         
-        
-
     </protection_domain>
 
-
+    <channel>
+        <end pd="serial_server" id="1"/>
+        <end pd="client_server" id="2"/>
+    </channel>
 
 
 </system>

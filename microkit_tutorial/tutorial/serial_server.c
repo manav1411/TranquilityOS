@@ -77,4 +77,6 @@ void notified(microkit_channel channel) {
     uart_handle_irq();
     microkit_irq_ack(channel);
 
+    microkit_notify(1);
+
 }
