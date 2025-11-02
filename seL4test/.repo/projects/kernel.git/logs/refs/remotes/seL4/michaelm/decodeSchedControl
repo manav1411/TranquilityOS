@@ -1,0 +1,1 @@
+0000000000000000000000000000000000000000 5747e2e8b463c4f9074e9b555d995dd83f24565d manav1411 <manavbdodia@gmail.com> 1762061600 +1100	fetch --quiet --progress seL4 --prune --recurse-submodules=no --tags +refs/heads/*:refs/remotes/seL4/* +refs/heads/master:refs/remotes/seL4/master +refs/tags/*:refs/tags/*: storing head

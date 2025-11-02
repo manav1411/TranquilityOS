@@ -1,0 +1,1 @@
+regen /Users/manav/Downloads/TranquilityOS/seL4test/build-aarch64/kernel/kernel.dtb /Users/manav/Downloads/TranquilityOS/seL4test/build-aarch64/qemu-arm-virt.dts;/Users/manav/Downloads/TranquilityOS/seL4test/kernel/src/plat/qemu-arm-virt/overlay-qemu-arm-virt.dts
