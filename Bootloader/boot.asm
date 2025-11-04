@@ -1,8 +1,24 @@
-; boot.asm
-    cli
+mov ax, 0x07c0
+mov ds, ax
+
+mov si, msg
+cld
+output_char:
+    lodsb
+    or al, al
+    jz hang
+
+    mov ah, 0x0E
+    mov bh, 0
+    int 0x10
+    jmp output_char
+
+
 hang:
     jmp hang
 
+
+msg db "hello world", 13, 10, 0
     times 510-($-$$) db 0
     db 0x55
     db 0xAA
