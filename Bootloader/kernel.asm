@@ -1,21 +1,17 @@
-[BITS 32]
-[ORG 0x1000]
+[bits 32]
 
-; simple hello world
+; This is the kernel entry point
+; later ill change this to call the C kernel main
+; Here we just make a dummy kernel that prints 'X'
+
 start:
-    mov esi, msg       ; source string
-    mov edi, 0xb8000   ; VGA memory start
-    mov ecx, msg_len   ; string length
-
-print_loop:
-    lodsb               ; load byte from [ESI] into AL, increment ESI
-    mov ah, 0x07        ; attribute byte: white on black
-    stosw               ; store AX (char+attr) at [EDI], increment EDI by 2
-    loop print_loop
+    mov edi, 0xb8000    ; Video memory start (top left)
+    mov al, 'X'         ; char to print
+    mov ah, 0x4E        
+    mov [edi], ax
 
 hang:
     jmp hang
 
-; ----------------------
-msg db 'hello from the kernel!', 0
-msg_len equ $ - msg
+; Pad to ensure we have enough sectors
+times 2048 - ($-$$) db 0
