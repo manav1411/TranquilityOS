@@ -25,6 +25,11 @@ init_pm:
     mov gs, ax
     mov ss, ax              ; stack starts at data seg address
     mov esp, 0x9FC00        ; sets up stack
+
+    mov eax, cr0
+    or eax, 1
+    mov cr0, eax            ; protected mode is now enabled
+
     jmp CODE_SEG:0x1000     ; jmp to kernel
 
 
@@ -35,7 +40,7 @@ start:
     mov [boot_drive], dl    ; save boot drive address
     ; load kernel (mem location from sector2 to 0x0000:0x1000)
     mov ah, 0x02            ; read sectors
-    mov al, 5               ; num of sectors (ADJUSTABLE!)
+    mov al, 1               ; num of sectors (ADJUSTABLE!)
     mov ch, 0               ; cylinder
     mov dh, 0               ; head
     mov cl, 2               ; sector number
@@ -45,10 +50,6 @@ start:
     mov bx, 0x1000          ; offset
     int 0x13                ; interrupt to access the CHS^
     jc disk_error
-
-    mov eax, cr0
-    or eax, 1
-    mov cr0, eax            ; protected mode is now enabled
 
     jmp CODE_SEG:init_pm    ; jmp to kernel code
 
