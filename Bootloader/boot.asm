@@ -8,9 +8,9 @@ jmp start
 gdt_start:
     dq 0x0000000000000000   ; Null
 gdt_code:
-    dq 0x00CF9A000000FFFF   ; Code segment
+    dq 0x00CF9A000000FFFF   ; Code segment, 0-4gb, ring 0
 gdt_data:
-    dq 0x00CF92000000FFFF   ; Data segment
+    dq 0x00CF92000000FFFF   ; Data segment, 0-4gb, ring 0
 gdt_end:
 
 gdt_descriptor:

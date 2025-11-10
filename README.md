@@ -1,5 +1,5 @@
 # TranquilityOS
-a hobbyist OS built from scratch, designed to run on x86 architecture. The project explores the fundamentals of bootloaders, kernel dev, and low-level hardware interaction, starting from BIOS execution to a basic 32-bit kernel.
+an OS built from scratch, designed to run on x86 architecture. The project explores the fundamentals of bootloaders, kernel dev, and low-level hardware interaction, starting from BIOS execution to a basic 32-bit kernel.
 
 ## Features
 - Minimal bootloader written in x86 assembly

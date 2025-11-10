@@ -1,24 +1,29 @@
-all: os-image.bin
+# Files
+BOOT=bootloader/boot.asm
+KERNEL=kernel/kernel.asm
+BOOT_BIN=boot.bin
+KERNEL_BIN=kernel.bin
+OS_IMG=os_image.bin
 
-os-image.bin: boot.bin kernel.bin
-	dd if=/dev/zero of=os-image.bin bs=512 count=2880
-	dd if=boot.bin of=os-image.bin conv=notrunc
-	dd if=kernel.bin of=os-image.bin bs=512 seek=1 conv=notrunc
+# default target, makes the OS image, doesn't run it
+all: $(OS_IMG)
 
-boot.bin: bootloader/boot.asm
-	nasm -f bin $< -o $@
+# OS image built by concatenating boot and kernel.
+$(OS_IMG): $(BOOT_BIN) $(KERNEL_BIN)
+	cat $(BOOT_BIN) $(KERNEL_BIN) > $(OS_IMG)
 
-kernel.bin: kernel/kernel.asm
-	nasm -f bin $< -o $@
+# compiling bootloader
+$(BOOT_BIN): $(BOOT)
+	nasm -f bin $(BOOT) -o $(BOOT_BIN)
 
-run: os-image.bin
-	qemu-system-x86_64 -fda os-image.bin
+# compiling kernel
+$(KERNEL_BIN): $(KERNEL)
+	nasm -f bin $(KERNEL) -o $(KERNEL_BIN)
 
-debug: os-image.bin
-	qemu-system-x86_64 -fda os-image.bin -d cpu -no-reboot -no-shutdown
+# run in QEMU
+run: $(OS_IMG)
+	qemu-system-x86_64 -fda $(OS_IMG)
 
+# Clean generated files
 clean:
-	rm -f *.bin *.img
-
-disasm: boot.bin
-	ndisasm -b 16 boot.bin
+	rm -f $(BOOT_BIN) $(KERNEL_BIN) $(OS_IMG)
