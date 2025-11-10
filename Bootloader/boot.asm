@@ -1,7 +1,6 @@
 [bits 16]
 [org 0x7C00]
 jmp start
-%include "./bootloader/print.inc"
 
 
 ; GDT setup

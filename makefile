@@ -1,13 +1,13 @@
 # files
-KERNEL_ENTRY=kernel/kernel_entry.asm
-KERNEL_ENTRY_OBJ=kernel/kernel_entry.o
-C_KERNEL=kernel/kernel.c
-C_KERNEL_OBJ=kernel/kernel.o
-LINKER=kernel/linker.ld
 BOOT=bootloader/boot.asm
-BOOT_BIN=boot.bin
-KERNEL_BIN=kernel.bin
-OS_IMG=os_image.bin
+C_KERNEL=kernel/kernel.c
+LINKER=kernel/linker.ld
+KERNEL_ENTRY=kernel/kernel_entry.asm
+BOOT_BIN=build/boot.bin
+KERNEL_ENTRY_OBJ=build/kernel_entry.o
+C_KERNEL_OBJ=build/kernel.o
+KERNEL_BIN=build/kernel.bin
+OS_IMG=build/os_image.bin
 
 # default target, makes the OS image, doesn't run it
 all: $(OS_IMG)
@@ -38,4 +38,4 @@ run: $(OS_IMG)
 
 # delete compiled files
 clean:
-	rm -f $(BOOT_BIN) $(KERNEL_BIN) $(C_KERNEL_OBJ) $(KERNEL_ENTRY_OBJ) $(OS_IMG)
+	rm -f *.bin *.o
