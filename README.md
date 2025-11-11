@@ -1,11 +1,13 @@
 # TranquilityOS
-an OS built from scratch, designed to run on x86 architecture. The project explores the fundamentals of bootloaders, kernel dev, and low-level hardware interaction, starting from BIOS execution to a basic 32-bit kernel.
+an OS built from scratch, designed to run on x86 architecture. I look into the fundamentals of bootloaders, kernel dev, and low-level hardware interaction, starting from BIOS execution to a basic 32-bit kernel - able to print letters to the screen.
+
+To read about my own learning, as well as progress/planning, see notes.md above.
 
 ## Features
 - Minimal bootloader written in x86 assembly
 - Transition from real mode (16-bit) to protected mode (32-bit)
 - Simple kernel that prints directly to video memory (bypassing BIOS)
-- QEMU support for rapid testing and debugging
+- QEMU support
 
 
 ## Project Structure (may be outdated)
